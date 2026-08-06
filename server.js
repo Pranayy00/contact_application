@@ -27,6 +27,7 @@ const start=async()=>{
     try {
         await fastify.listen({
             port:PORT
+            host:"0.0.0.0"
         })
         console.log(`mongodb connected on port ${PORT}`);
         
