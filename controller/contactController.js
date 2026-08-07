@@ -202,7 +202,32 @@ const createContact=async(req,reply)=>{
         
        }
 
-        const contact={name,email,phone,address}
+        //check if user already exits
+       const existingUser=await req.server.mongo.db.collection("contact").findOne({email})
+       if (existingUser) {
+        return reply.code(409).send({
+            sucess:false,
+            message:"User already exists"
+        })
+        
+       }
+
+        //check if user already exists
+       const existingUser=await req.server.mongo.db.collection("contact").findOne({email})
+       if (existingUser) {
+        return reply.code(409).send({
+            sucess:false,
+            message:"User already exists"
+        })
+        
+       }
+
+        const contact={
+            name,
+            email,
+            phone,
+            address:address||[]
+        }
 
         const result=await req.server.mongo.db.collection("contact").insertOne(contact)
          
