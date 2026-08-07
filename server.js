@@ -8,7 +8,7 @@ const PORT=process.env.PORT
 //cors
 fastify.register(cors,{
     origin:true,
-     methods:["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+    methods:["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
 })
 
 
@@ -23,7 +23,15 @@ fastify.register(require("./Routes/contactRoutes"),{
     prefix:"api",
 })
 
+//fastify hook 
+fastify.addHook("onReady",async ()=>{
+    fastify.mongo.db.collection("contact")
+    .createIndex(
+        {email:1},
+        {unique:true}
+    )
 
+})
 
 fastify.get("/",(req,reply)=>{
     reply.code(200).send({
