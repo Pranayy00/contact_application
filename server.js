@@ -8,6 +8,7 @@ const PORT=process.env.PORT
 //cors
 fastify.register(cors,{
     origin:true,
+     methods:["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
 })
 
 
