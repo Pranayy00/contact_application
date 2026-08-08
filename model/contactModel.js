@@ -18,12 +18,13 @@ const Contact = {
         phone: {
             type: "array",
             items:{
-                type:String,
-            },
+            type:"string",
             pattern:"^[0-9]+$",
             minLength:10,
             maxLength:15
 
+            },
+           
         },
 
         email: {
