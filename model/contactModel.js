@@ -16,7 +16,10 @@ const Contact = {
         },
 
         phone: {
-            type: "string",
+            type: "array",
+            items:{
+                type:String,
+            },
             pattern:"^[0-9]+$",
             minLength:10,
             maxLength:15
