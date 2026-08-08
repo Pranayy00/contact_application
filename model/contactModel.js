@@ -5,59 +5,71 @@ const Contact = {
         "name",
         "phone",
         "email",
-        "address",
-        "pincode"
+        "addresses"
     ],
 
     properties: {
+
         name: {
             type: "string",
-            pattern: "^[A-Za-z ]+$", 
-            minLength:2,
-            maxLength:50
+            pattern: "^[A-Za-z ]+$",
+            minLength: 2,
+            maxLength: 50
         },
 
         phone: {
             type: "array",
-            items:{
-            type:"string",
-            pattern:"^[0-9]+$",
-            minLength:10,
-            maxLength:15
-
-            },
-           
+            items: {
+                type: "string",
+                pattern: "^[0-9]+$",
+                minLength: 10,
+                maxLength: 15
+            }
         },
 
         email: {
             type: "string",
             format: "email"
-            
         },
 
-        address: {
+        addresses: {
             type: "array",
-            items:{
-                type:"string"
+            items: {
+                type: "object",
+
+                required: [
+                    "addressLine",
+                    "pincode"
+                ],
+
+                properties: {
+
+                    addressLine: {
+                        type: "string"
+                    },
+
+                    pincode: {
+                        type: "string",
+                        pattern: "^[0-9]+$",
+                        minLength: 6,
+                        maxLength: 6
+                    },
+
+                    landmark: {
+                        type: "string"
+                    },
+
+                    street: {
+                        type: "string"
+                    }
+                },
+
+                additionalProperties: false
             }
-        },
-
-        pincode:{
-        type:"string",
-        pattern:"^[0-9]+$",
-        minLength:6,
-        maxLength:6
-        },
-
-        street:{
-         type:"string",
-        },
-        landmark:{
-        type:"string",
-        },
-        
+        }
     },
-    additionalProperties:false
+
+    additionalProperties: false
 };
 
-module.exports = {Contact};
+module.exports = { Contact };
