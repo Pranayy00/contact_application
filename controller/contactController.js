@@ -206,7 +206,7 @@ const createContact=async(req,reply)=>{
             name,
             email,
             phone,
-            address:address||[]
+            addresses:addresses||[]
         }
 
         const result=await req.server.mongo.db.collection("contact").insertOne(contact)
