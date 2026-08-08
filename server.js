@@ -1,10 +1,18 @@
+const dns=require("dns")
 require("dotenv").config();
 const cors=require("@fastify/cors");
 const connectDB=require("@fastify/mongodb");
 const fastify=require("fastify")({logger:true});
 
 
+
 const PORT=process.env.PORT
+
+dns.setServers([
+    "8.8.8.8",
+    "1.1.1.1"
+
+])
 
 //cors
 fastify.register(cors,{

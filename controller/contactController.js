@@ -190,7 +190,7 @@ const getContacts=async(req,reply)=>{
 //post contact
 const createContact=async(req,reply)=>{
     try {
-        const{name,email,phone,address}=req.body
+        const{name,email,phone,addresses}=req.body
 
         //check if user already exists
        const existingUser=await req.server.mongo.db.collection("contact").findOne({email})
