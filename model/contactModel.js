@@ -4,7 +4,9 @@ const Contact = {
     required: [
         "name",
         "phone",
-        "email"
+        "email",
+        "address",
+        "pincode"
     ],
 
     properties: {
@@ -39,8 +41,23 @@ const Contact = {
                 type:"string"
             }
         },
-        additionalProperties:false
-    }
+
+        pincode:{
+        type:"string",
+        pattern:"^[0-9]+$",
+        minLength:6,
+        maxLength:6
+        },
+
+        street:{
+         type:"string",
+        },
+        landmark:{
+        type:"string",
+        },
+        
+    },
+    additionalProperties:false
 };
 
 module.exports = {Contact};
