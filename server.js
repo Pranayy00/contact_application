@@ -1,9 +1,8 @@
 require("dotenv").config();
 const cors=require("@fastify/cors");
-const cors=require("@fastify/cors");
 const connectDB=require("@fastify/mongodb");
 const fastify=require("fastify")({logger:true});
-const fastify=require("fastify")({logger:true});
+
 
 const PORT=process.env.PORT
 
