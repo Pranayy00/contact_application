@@ -10,7 +10,7 @@ const Contact = {
     properties: {
         name: {
             type: "string",
-            pattern: "^[A-Za-z ]+$",
+            pattern: "^[A-Za-z ]+$", 
             minLength:2,
             maxLength:50
         },
