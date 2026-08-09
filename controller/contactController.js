@@ -29,7 +29,7 @@ const deleteContact = async (req, reply) => {
             });
 
         // Contact doesn't exist
-        if (result.deletedCount === 0) {
+        if (result.deletedCoun===0) {
             return reply.code(404).send({
                 success: false,
                 message: "Contact not found"
@@ -58,7 +58,7 @@ const deleteContact = async (req, reply) => {
 const updateContact=async(req,reply)=>{
     try {
         const{id}=req.params
-        const{name,email,phone,address}=req.body
+        const{name,email,phone,addresses}=req.body
         if (!id) {
             return reply.code(404).send({
                 sucess:false,
@@ -81,7 +81,7 @@ const updateContact=async(req,reply)=>{
                 name,
                 email,
                 phone,
-                address
+                addresses
 
             }
         });
